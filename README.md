@@ -10,8 +10,8 @@ Thing you would require before using this bot:
 
 Install all the package needed
 
-npm i dotenv
-npm i discord.js-selfbot-v13
-npm i node-telegram-bot-api
+1. npm i dotenv
+2. npm i discord.js-selfbot-v13
+3. npm i node-telegram-bot-api
 
 node app.js to start the bot
