@@ -19,16 +19,25 @@ client.on('ready', () => {
 client.on("message", (m) => {
     let username = m.author.username.toLowerCase();
     let discriminator = m.author.discriminator;
+    let imagearray = Array.from(m.attachments); //Getting of image size
     switch (m.channelId) {
         case '<channelID>':
             //Tbot.sendMessage(chatid, m.embeds[0].url); This is to send embeds if there's embeds attached to it
-            //Tbot.sendPhoto(chatid, m.embeds[0].image.url); This is to send photo if there's a image attached to the message
             Tbot.sendMessage(chatid, `-- Channel 1 -- \n\n" ${username}#${discriminator}: ` + m.content);
+            if (imagearray.length != 0) {
+                m.attachments.map(image => {
+                    Tbot.sendPhoto(chatid, image.url);
+                });
+            }
             break;
         case '<channelID2>':
             //Tbot.sendMessage(chatid, m.embeds[0].url); This is to send embeds if there's embeds attached to it
-            //Tbot.sendPhoto(chatid, m.embeds[0].image.url); This is to send photo if there's a image attached to the message
             Tbot.sendMessage(chatid, `-- Channel 2 -- \n\n"+ ${username}#${discriminator}: ` + m.content);
+            if (imagearray.length != 0) {
+                m.attachments.map(image => {
+                    Tbot.sendPhoto(chatid, image.url);
+                });
+            }
             break;
     }
 });
